@@ -28,6 +28,7 @@ At each time step, an instruction is retrieved from the word pointed to by the p
 #### Instructions' coding and semantics
 The Universal Machine recognizes 14 instructions. The instruction is coded by the four most significant bits of the instruction word. These bits are called the *opcode*.
 Some instructions ignore one or more of the register numbers A, B, and C.|width 0pt depth 6pt 
+
 | *Number	Operator8* | Action |
 | ----------------------- | --------- |
 |  Conditional Move |	if r[C] !=0 then r[A] :=r[B] |
@@ -40,10 +41,11 @@ Some instructions ignore one or more of the register numbers A, B, and C.|width 
  |	Halt|	Computation stops|
 | Activate Array	|A new array is created with a number of words equal to the value in r[C]. Each word in the new array is initialized to 0. A bit pattern that is not all zeroes and that does not identify any currently active array is placed in r[B]. Array a[r[B]] becomes active|
 |	Inactivate Array |	The array a[r[C]] becomes inactive. Future allocations may reuse the identifier r[C].|
-|	Output |	The value in r[C] is displayed on the console immediately. Only values from 0 to 255 are allowed.
+|	Output |	The value in r[C] is displayed on the console immediately. Only values from 0 to 255 are allowed.|
 |	Input|	The universal machine waits for input on the console. When input arrives, r[C] is loaded with the input, which must be a value from 0 to 255. If the end of input has been signaled, then r[C] is loaded with a word in which every bit is 1|
 |	Load Program|	Array a[r[B]] is duplicated, and the duplicate replaces a[0], which is abandoned. The program counter is set to point to element(a[0], r[C]). If r[B] = 0, the load-program operation is expected to be extremely quick|
-|	Load Value	|See semantics for ``other instruction'' in Section [->].|
+|	Load Value	|See semantics for "other instruction" in Section |
+
 #### Semantics of UM instructions [*]
 
 ##### Three-register instructions
@@ -225,6 +227,6 @@ All tests (including the memseg-test) can be run as an executable:
 Which utilizes popen() and system() function calls to execute each command
 with valgrind.
 
-We spent about 20hours analyzing the assignmet:expressionless:
-We spent about 2 days preparing the design documents:tired_face:
-We spent about 48 hours solving the problems after the analysis:cry:
+We spent about 20hours analyzing the assignmet:expressionless: .
+We spent about 2 days preparing the design documents:tired_face: .
+We spent about 48 hours solving the problems after the analysis:cry: .
